@@ -117,27 +117,27 @@ int main(void)
 
         if (data.status == DHTData::Status::Valid)
         {
-        	snprintf(buff, sizeof(buff), "Sample OK: %.2f *C %.2f %% H\n\r", static_cast<double>(data.temperature), static_cast<double>(data.humidity));
+            snprintf(buff, sizeof(buff), "Sample OK: %.2f *C %.2f %% H\n\r", static_cast<double>(data.temperature), static_cast<double>(data.humidity));
         }
         else if (data.status == DHTData::Status::TimeoutOnSync1)
         {
-        	snprintf(buff, sizeof(buff), "Read DHT11 timed out on the first step of sync\n\r");
+            snprintf(buff, sizeof(buff), "Read DHT11 timed out on the first step of sync\n\r");
         }
         else if (data.status == DHTData::Status::TimeoutOnSync2)
         {
-        	snprintf(buff, sizeof(buff), "Read DHT11 timed out on the second step of sync\n\r");
+            snprintf(buff, sizeof(buff), "Read DHT11 timed out on the second step of sync\n\r");
         }
         else if (data.status == DHTData::Status::TimeoutOnDataReceive)
         {
-        	snprintf(buff, sizeof(buff), "Read DHT11 timed out while receiving data\n\r");
+            snprintf(buff, sizeof(buff), "Read DHT11 timed out while receiving data\n\r");
         }
         else if (data.status == DHTData::Status::ChecksumFailed)
         {
-        	snprintf(buff, sizeof(buff), "Read DHT11 with failed checksum\n\r");
+            snprintf(buff, sizeof(buff), "Read DHT11 with failed checksum\n\r");
         }
         else if (data.status == DHTData::Status::Other)
         {
-        	snprintf(buff, sizeof(buff), "Read DHT11 failed with unknown reason\n\r");
+            snprintf(buff, sizeof(buff), "Read DHT11 failed with unknown reason\n\r");
         }
 
         HAL_UART_Transmit(&huart1, reinterpret_cast<uint8_t*>(buff), sizeof(buff), 1000);
@@ -210,18 +210,18 @@ static void MX_TIM3_Init(void)
     htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
     {
-      Error_Handler();
+        Error_Handler();
     }
     sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
     if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
     {
-      Error_Handler();
+        Error_Handler();
     }
     sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
     sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
     if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
     {
-      Error_Handler();
+        Error_Handler();
     }
     /* USER CODE BEGIN TIM3_Init 2 */
 

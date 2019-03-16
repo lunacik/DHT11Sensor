@@ -8,14 +8,14 @@
 
 float toFloat(byte intPart, byte floatPart)
 {
-	float f = floatPart;
+    float f = floatPart;
 
-	while(f >= 1.f)
-	{
-		f /= 10.f;
-	}
+    while(f >= 1.f)
+    {
+        f /= 10.f;
+    }
 
-	return static_cast<float>(intPart) + f;
+    return static_cast<float>(intPart) + f;
 }
 
 #endif /* UTILS_H */
